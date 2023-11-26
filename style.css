@@ -7,6 +7,14 @@
     height: 300px; /* Set the height of the game board */
     border: 1px solid black; /* Add a border to the game board */
 }
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center; /* Center the text within the button */
+  margin: 10px auto; /* Center the button horizontally */
+}
 
 .snake {
     position: absolute;
