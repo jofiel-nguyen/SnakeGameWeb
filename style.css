@@ -45,14 +45,14 @@ h1 {
 /* For tablets and laptops (min-width: 768px) */
 @media (min-width: 768px) {
     #game-board {
-      background-color: #ff0000;
+      background-color: #baa4a4;
     }
   }
   
   /* For phones (max-width: 480px) */
   @media (max-width: 480px) {
     #game-board {
-      background-color: #00ff00;
+      background-color: #5a6b5a;
     }
   }
   
