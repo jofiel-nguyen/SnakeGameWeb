@@ -9,6 +9,9 @@ Use the arrow keys (Up, Down, Left, Right) to control the snake's movement.
 The snake will grow when it eats the red food.
 
 If the snake collides with the walls or itself, the game will reset.
+## Screenshots
+
+[![Snake Game Web](./deployed.png)](https://jofiel-nguyen.github.io/SnakeGameWeb/)
 
 ## Files
 index.html: The main HTML file that contains the structure of the game and includes the necessary styles and scripts.
