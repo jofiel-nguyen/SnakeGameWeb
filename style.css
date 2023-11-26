@@ -79,6 +79,15 @@ h1 {
         font-size: 14px;
         margin: 10px auto; /* Center the button horizontally */
     }
+    .snake {
+      width: 15px; /* Adjust the width of the snake for smaller screens */
+      height: 15px; /* Adjust the height of the snake for smaller screens */
+  }
+
+  .food {
+      width: 15px; /* Adjust the width of the food for smaller screens */
+      height: 15px; /* Adjust the height of the food for smaller screens */
+  }
 
     @media (max-width: 320px) {
       #game-board {
