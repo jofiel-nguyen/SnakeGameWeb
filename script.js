@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function showHistoryScores() {
         alert('History Scores:\n' + historyScores.join('\n'));
     }
+
     function updateDirection(newDirection) {
         if (isButtonEnabled) {
             direction = newDirection;
@@ -105,20 +106,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const head = snake[0];
 
         if (head.x < 0 || head.x >= gameBoard.clientWidth / gridSize || head.y < 0 || head.y >= gameBoard.clientHeight / gridSize) {
-            saveScore();
             resetGame();
         }
 
         for (let i = 1; i < snake.length; i++) {
             if (head.x === snake[i].x && head.y === snake[i].y) {
-                saveScore();
                 resetGame();
             }
         }
     }
 
     function resetGame() {
-        saveScore(); // Save the score before resetting
+        // Save the score before resetting, but only if it hasn't been saved yet
+        if (historyScores.indexOf(snake.length - 1) === -1) {
+            saveScore();
+        }
+
         snake = [{ x: 0, y: 0 }];
         direction = 'right';
         generateFood();
