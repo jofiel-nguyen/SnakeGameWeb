@@ -1,3 +1,4 @@
+
 #game-board {
     position: absolute;
     top: 50%;
@@ -12,8 +13,8 @@ button {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
-  text-align: center; /* Center the text within the button */
-  margin: 10px auto; /* Center the button horizontally */
+  text-align: center; 
+  margin: 10px auto; 
 }
 
 .snake {
@@ -24,10 +25,19 @@ button {
 }
 
 .food {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: red;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: transparent; /* Set background color to transparent */
+  background-image: url(''); /* Clear any existing background image */
+  font-size: 20px; /* Set the font size to change the size of the emoji */
+  line-height: 1; /* Ensure the emoji is vertically centered */
+}
+
+/* Set the 🍎 emoji as the content for the food element */
+.food::before {
+  content: '🍎';
+  display: block;
 }
 
 footer {
@@ -58,7 +68,7 @@ h1 {
   }
   @media (max-width: 480px) {
     #game-board {
-        background-color: #5a6b5a;
+        background-color: #b1d5b1;
         width: 300px;
         height: 300px;
         border: 1px solid black;
@@ -72,7 +82,7 @@ h1 {
 
     @media (max-width: 320px) {
       #game-board {
-          background-color: #5a6b5a;
+          background-color: #bac2ba;
           width: 250px;
           height: 250px;
       }
