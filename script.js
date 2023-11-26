@@ -91,13 +91,7 @@ function gameLoop() {
     checkCollision();
 }
 
-document.addEventListener('keydown', handleKeyPress);
-
-gameBoard.addEventListener('click', (e) => {
-    handleMouseClick(e);
-});
-
-function handleKeyPress(e) {
+document.addEventListener('keydown', (e) => {
     switch (e.key) {
         case 'ArrowUp':
             direction = 'up';
@@ -112,29 +106,7 @@ function handleKeyPress(e) {
             direction = 'right';
             break;
     }
-}
-
-function handleMouseClick(event) {
-    const mouseX = event.clientX;
-    const mouseY = event.clientY;
-
-    const headX = snake[0].x * gridSize;
-    const headY = snake[0].y * gridSize;
-
-    // Calculate the angle between the mouse click and the snake head
-    const angle = Math.atan2(mouseY - headY, mouseX - headX);
-
-    // Convert the angle to a direction
-    if (angle > -Math.PI / 4 && angle <= Math.PI / 4) {
-        direction = 'right';
-    } else if (angle > Math.PI / 4 && angle <= 3 * Math.PI / 4) {
-        direction = 'up';
-    } else if (angle > -3 * Math.PI / 4 && angle <= -Math.PI / 4) {
-        direction = 'down';
-    } else {
-        direction = 'left';
-    }
-}
+});
 
 generateFood();
 setInterval(gameLoop, 200);
