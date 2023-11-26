@@ -60,7 +60,10 @@ h1 {
   /* For phones (max-width: 480px) */
   @media (max-width: 480px) {
     #game-board {
-      background-color: #5a6b5a;
+      background-color: #5a6b5a;}
+      button {
+        padding: 8px 16px; /* Adjust padding for smaller screens */
+        font-size: 14px; /* Adjust font size for smaller screens */
     }
   }
   @media (max-width: 320px) {
@@ -69,6 +72,10 @@ h1 {
         width: 250px; /* Adjust the width for smaller screens */
         height: 250px; /* Adjust the height for smaller screens */
     }
+    button {
+      padding: 6px 12px; /* Further adjust padding for even smaller screens */
+      font-size: 12px; /* Further adjust font size for even smaller screens */
+  }
 
     /* Additional styling for other elements if needed */
 }
