@@ -1,26 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
     const toggleButton = document.getElementById('toggleButton');
+    const virtualButtons = document.getElementById('totalButton'); // Corrected ID
+    const showHistoryButton = document.getElementById('showHistoryButton');
     const gameBoard = document.getElementById('game-board');
     const gridSize = 20;
     const snakeSize = 20;
     let snake = [{ x: 0, y: 0 }];
     let food = { x: 0, y: 0 };
     let direction = 'right';
-    let isButtonEnabled = true; // New variable to track the button state
+    let isButtonEnabled = false; // Set initial state to false
+    let historyScores = [];
+
     const upButton = document.getElementById('upButton');
     const downButton = document.getElementById('downButton');
     const leftButton = document.getElementById('leftButton');
     const rightButton = document.getElementById('rightButton');
+
     toggleButton.addEventListener('click', () => {
-        isButtonEnabled = !isButtonEnabled; // Toggle the button state
+        isButtonEnabled = !isButtonEnabled; 
     });
+
+    showHistoryButton.addEventListener('click', () => {
+        showHistoryScores();
+    });
+
+    virtualButton.addEventListener('click', () => {
+        // Toggle the display of virtual buttons when the "Virtual Button" is clicked
+        virtualButtons.style.display = (virtualButtons.style.display === 'none' || virtualButtons.style.display === '') ? 'flex' : 'none';
+    });
+
+    function showHistoryScores() {
+        alert('History Scores:\n' + historyScores.join('\n'));
+    }
     function updateDirection(newDirection) {
         if (isButtonEnabled) {
             direction = newDirection;
         }
     }
 
-    // Event listeners for virtual buttons
     upButton.addEventListener('click', () => updateDirection('up'));
     downButton.addEventListener('click', () => updateDirection('down'));
     leftButton.addEventListener('click', () => updateDirection('left'));
@@ -79,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
             y: Math.floor(Math.random() * (gameBoard.clientHeight / gridSize))
         };
 
-        // Make sure food doesn't appear on the snake
         if (snake.some(segment => segment.x === food.x && segment.y === food.y)) {
             generateFood();
         }
@@ -88,23 +104,28 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkCollision() {
         const head = snake[0];
 
-        // Check if snake hits the walls
         if (head.x < 0 || head.x >= gameBoard.clientWidth / gridSize || head.y < 0 || head.y >= gameBoard.clientHeight / gridSize) {
+            saveScore();
             resetGame();
         }
 
-        // Check if snake collides with itself
         for (let i = 1; i < snake.length; i++) {
             if (head.x === snake[i].x && head.y === snake[i].y) {
+                saveScore();
                 resetGame();
             }
         }
     }
 
     function resetGame() {
+        saveScore(); // Save the score before resetting
         snake = [{ x: 0, y: 0 }];
         direction = 'right';
         generateFood();
+    }
+
+    function saveScore() {
+        historyScores.push(snake.length - 1);
     }
 
     function gameLoop() {
