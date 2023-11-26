@@ -63,4 +63,12 @@ h1 {
       background-color: #5a6b5a;
     }
   }
-  
+  @media (max-width: 320px) {
+    #game-board {
+        background-color: #5a6b5a; /* Set the background color for iPhone 5 */
+        width: 250px; /* Adjust the width for smaller screens */
+        height: 250px; /* Adjust the height for smaller screens */
+    }
+
+    /* Additional styling for other elements if needed */
+}
