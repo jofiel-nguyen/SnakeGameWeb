@@ -60,10 +60,15 @@ h1 {
   /* For phones (max-width: 480px) */
   @media (max-width: 480px) {
     #game-board {
-      background-color: #5a6b5a;}
+      background-color: #5a6b5a;
+      width: 300px; /* Set the width of the game board */
+      height: 300px; /* Set the height of the game board */
+      border: 1px solid black; /* Add a border to the game board */
+    }
       button {
         padding: 8px 16px; /* Adjust padding for smaller screens */
         font-size: 14px; /* Adjust font size for smaller screens */
+        margin-bottom: 20px;
     }
   }
   @media (max-width: 320px) {
@@ -73,8 +78,8 @@ h1 {
         height: 250px; /* Adjust the height for smaller screens */
     }
     button {
-      padding: 6px 12px; /* Further adjust padding for even smaller screens */
-      font-size: 12px; /* Further adjust font size for even smaller screens */
+      padding: 6px 12px; 
+      font-size: 12px; 
   }
 
     /* Additional styling for other elements if needed */
